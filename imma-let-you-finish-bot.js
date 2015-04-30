@@ -14,7 +14,7 @@ module.exports = function ilyf (req, res, next) {
     var probability = Math.random();
     console.log('<ILYF Bot> Probability:', probability);
     
-    if (probability > process.env.ILTY_PROBABILITY) {
+    if (probability > Number(process.env.ILYF_PROBABILITY)) {
 
       var botPayload = {
         username: 'kanye-west',
