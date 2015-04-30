@@ -1,10 +1,12 @@
 var request = require('request');
 
-var prevUserName = '';
+var prevUserName = 'richard';
 var userName = 'richard';
 
 module.exports = function ilyf (req, res, next) {
-  
+
+  console.log(req.body);
+
   // avoid infinite loop
   if (userName !== 'slackbot') {
     prevUserName = userName === req.body.user_name ? prevUserName : userName;
