@@ -33,6 +33,8 @@ module.exports = function ilyf (req, res, next) {
           return res.status(200).end();
         }
       });
+    } else {
+      return res.status(200).end();
     }
   } else {
     return res.status(200).end();
