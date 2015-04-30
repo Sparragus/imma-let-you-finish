@@ -3,7 +3,7 @@ var request = require('request');
 var prevUserName = '';
 var userName = 'richard';
 
-module.exports = function ilyf (req, res) {
+module.exports = function ilyf (req, res, next) {
 
   prevUserName = userName === req.body.user_name ? prevUserName : userName;
   userName = req.body.user_name;
