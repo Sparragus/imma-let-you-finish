@@ -10,5 +10,10 @@
     "slack"
   ],
   "author": "Richard B. Kaufman-Lopez <richardbkaufman@gmail.com> (http://richardkaufman.org/)",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.12.3",
+    "express": "^4.12.3",
+    "request": "^2.55.0"
+  }
 }
