@@ -12,8 +12,8 @@ module.exports = function ilyf (req, res) {
   // avoid infinite loop
   if (userName !== 'kanye-west') {
     send(botPayload, function(err, status, body) {
-      if (error) {
-        return next(error);
+      if (err) {
+        return next(err);
 
       } else if (status !== 200) {
         // inform user that our Incoming WebHook failed
