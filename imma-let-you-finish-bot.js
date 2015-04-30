@@ -1,35 +1,39 @@
 var request = require('request');
 
-var prevUserName = 'richard';
-var userName = 'richard';
+var prevUserName = '';
+var userName = 'Beyonce';
 
 module.exports = function ilyf (req, res, next) {
 
-  console.log(req.body);
-
   // avoid infinite loop
-  if (req.body.user_name !== 'slackbot' && Math.random() > 0.98) {
-    prevUserName = userName === req.body.user_name ? prevUserName : userName;
-    userName = req.body.user_name;
+  if (req.body.user_name !== 'slackbot' ) {
     
-    var botPayload = {
-      username: 'kanye-west',
-      
-      // Yo, Taylor, I'm really happy for you, I'ma let you finish, but Beyoncé had one of the best videos of all time! One of the best videos of all time!
-      text : 'Yo, @' + userName + ', I\'m really happy for you, I\'ma let you finish, but @' + prevUserName + ' had one of the best comments of all time! One of the best comments of all time!'
-    };
-    send(botPayload, function(err, status, body) {
-      if (err) {
-        return next(err);
+    prevUserName = req.body.user_name === userName ? prevUserName : userName;
+    userName = req.body.user_name;
 
-      } else if (status !== 200) {
-        // inform user that our Incoming WebHook failed
-        return next(new Error('Incoming WebHook: ' + status + ' ' + body));
+    var probability = Math.random();
+    console.log('<ILYF Bot> Probability:', probability);
+    
+    if (probability > 0.98) {
 
-      } else {
-        return res.status(200).end();
-      }
-    });
+      var botPayload = {
+        username: 'kanye-west',
+        text : 'Yo, @' + userName + ', I\'m really happy for you, I\'ma let you finish, but @' + prevUserName + ' had one of the best comments of all time! One of the best comments of all time!'
+      };
+
+      send(botPayload, function(err, status, body) {
+        if (err) {
+          return next(err);
+
+        } else if (status !== 200) {
+          // inform user that our Incoming WebHook failed
+          return next(new Error('Incoming WebHook: ' + status + ' ' + body));
+
+        } else {
+          return res.status(200).end();
+        }
+      });
+    }
   } else {
     return res.status(200).end();
   }
