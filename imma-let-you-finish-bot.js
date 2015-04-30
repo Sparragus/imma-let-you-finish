@@ -16,7 +16,7 @@ module.exports = function ilyf (req, res) {
   };
  
   // avoid infinite loop
-  if (userName !== 'kanye-west') {
+  if (userName !== 'slackbot') {
     send(botPayload, function(err, status, body) {
       if (err) {
         return next(err);
