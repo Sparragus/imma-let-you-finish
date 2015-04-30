@@ -8,7 +8,7 @@ module.exports = function ilyf (req, res, next) {
   console.log(req.body);
 
   // avoid infinite loop
-  if (req.body.user_name !== 'slackbot') {
+  if (req.body.user_name !== 'slackbot' && Math.random() > 0.98) {
     prevUserName = userName === req.body.user_name ? prevUserName : userName;
     userName = req.body.user_name;
     
