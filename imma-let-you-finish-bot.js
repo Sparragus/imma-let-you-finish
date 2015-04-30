@@ -1,12 +1,18 @@
 var request = require('request');
 
+var prevUserName = '';
+var userName = 'richard';
+
 module.exports = function ilyf (req, res) {
 
-  // Yo, Taylor, I'm really happy for you, I'ma let you finish, but Beyoncé had one of the best videos of all time! One of the best videos of all time!
-  var userName = req.body.user_name;
+  prevUserName = userName === req.body.user_name ? prevUserName : userName;
+  userName = req.body.user_name;
+  
   var botPayload = {
     username: 'kanye-west',
-    text : 'Yo, ' + userName + ', I\'m really happy for you, I\'ma let you finish, but ' + '@richard' + ' had one of the best comments of all time! One of the best comments of all time!'
+    
+    // Yo, Taylor, I'm really happy for you, I'ma let you finish, but Beyoncé had one of the best videos of all time! One of the best videos of all time!
+    text : 'Yo, @' + userName + ', I\'m really happy for you, I\'ma let you finish, but ' + prevUserName + ' had one of the best comments of all time! One of the best comments of all time!'
   };
  
   // avoid infinite loop
