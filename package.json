@@ -1,0 +1,14 @@
+{
+  "name": "imma-let-you-finish",
+  "version": "0.0.0",
+  "description": "A slack bot that interrupts users.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "slack"
+  ],
+  "author": "Richard B. Kaufman-Lopez <richardbkaufman@gmail.com> (http://richardkaufman.org/)",
+  "license": "MIT"
+}
