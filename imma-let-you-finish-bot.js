@@ -4,19 +4,18 @@ var prevUserName = '';
 var userName = 'richard';
 
 module.exports = function ilyf (req, res, next) {
-
-  prevUserName = userName === req.body.user_name ? prevUserName : userName;
-  userName = req.body.user_name;
   
-  var botPayload = {
-    username: 'kanye-west',
-    
-    // Yo, Taylor, I'm really happy for you, I'ma let you finish, but Beyoncé had one of the best videos of all time! One of the best videos of all time!
-    text : 'Yo, @' + userName + ', I\'m really happy for you, I\'ma let you finish, but ' + prevUserName + ' had one of the best comments of all time! One of the best comments of all time!'
-  };
- 
   // avoid infinite loop
   if (userName !== 'slackbot') {
+    prevUserName = userName === req.body.user_name ? prevUserName : userName;
+    userName = req.body.user_name;
+    
+    var botPayload = {
+      username: 'kanye-west',
+      
+      // Yo, Taylor, I'm really happy for you, I'ma let you finish, but Beyoncé had one of the best videos of all time! One of the best videos of all time!
+      text : 'Yo, @' + userName + ', I\'m really happy for you, I\'ma let you finish, but ' + prevUserName + ' had one of the best comments of all time! One of the best comments of all time!'
+    };
     send(botPayload, function(err, status, body) {
       if (err) {
         return next(err);
