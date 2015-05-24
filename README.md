@@ -2,7 +2,7 @@
 
 ![](http://ledhack.org/content/images/2015/05/imma-let-you-finish.png)
 
-[imma-let-you-finish](https://imma-let-you-finish.herokuapp.com/) celebrates over five years of [Kanye West hacking the stage](https://www.youtube.com/watch?v=3K21rLBEfeM). This [Slack Bot](https://slack.com/) will randomly appear on your conversation to tell everyone who has the best comment of all times. Of all times!
+[imma-let-you-finish](http://ledhack.org/imma-let-you-finish/) celebrates over five years of [Kanye West hacking the stage](https://www.youtube.com/watch?v=3K21rLBEfeM). This [Slack Bot](https://slack.com/) will randomly appear on your conversation to tell everyone who has the best comment of all times. Of all times!
 
 ## Add it on your Slack channel in three steps!
 ### Step 1 - Create an Outgoing Webhook integration
