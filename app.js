@@ -58,7 +58,7 @@ app.post('*', function immaLetYouFinish (req, res) {
 // kanye also replies to everyone else doing a get request.
 app.get('*', function(req, res) {
   var ip = req.ip;
-  res.status(200).send('Yo ' + ip + ', I’m really happy for you, Imma let you finish, but Beyonce had one of the best videos of all time…one of the best videos of all time!');
+  res.status(200).send('Yo ' + ip + ', I’m really happy for you, Imma let you finish, but Beyonce had one of the best videos of all time...one of the best videos of all time!');
 });
 
 // error handler
