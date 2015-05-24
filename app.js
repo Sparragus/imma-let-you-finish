@@ -45,12 +45,12 @@ app.post('*', function immaLetYouFinish (req, res) {
     };
 
     // reply to the channel.
-    console.log('Hmmmm, I feel like interrupting the conversation.');
+    console.log('Hmmmm, I feel like interrupting ' + userName + '['+ probability +']');
     res.json(botResponse);
   }
   else {
     // otherwise reply to the server and don't keep it hanging. too many timeouts and slack disables your integration.
-    console.log('Yeah, yeah. Whatever.');
+    console.log('Yeah, yeah. Whatever. ['+probability+']');
     return res.status(200).end();
   }
 });
