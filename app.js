@@ -4,6 +4,8 @@ var bodyParser = require('body-parser');
 var app = express();
 var port = process.env.PORT || 3000;
 
+
+// vars this app uses to know who has chatted recently.
 var prevUserName = '';
 var userName = 'Beyonce';
 
@@ -22,12 +24,17 @@ app.post('*', function immaLetYouFinish (req, res) {
     return res.status(200).end();
   }
 
+  // if this user is the same one as the last one, dont change prevUserName. Otherwise, userName becomes prevUserName.
   prevUserName = req.body.user_name === userName ? prevUserName : userName;
+
+  // the user that is currently chatting.
   userName = req.body.user_name;
 
+  // there's a 0.5% chance of interrupting the conversation.
   var probability = Math.random();
   if (probability <= Number(0.005)) {
 
+    // kanye west's response
     var botResponse = {
       icon_url: 'http://i.imgur.com/GSEfJzI.jpg',
       username: 'Kanye West',
@@ -35,18 +42,21 @@ app.post('*', function immaLetYouFinish (req, res) {
     };
 
     res.json(botResponse);
-  } else {
+  } 
+  else {
+    // otherwise reply to the server and don't keep it hanging. too many timeouts and slack disables your integration.
     return res.status(200).end();
   }
 });
 
 // kanye also replies to everyone else doing a get request.
 app.get('*', function(req, res) {
-  res.status(200).send('Yo Taylor, I’m really happy for you, Imma let you finish but Beyonce had one of the best videos of all time…one of the best videos of all time!');
+  var ip = req.ip;
+  res.status(200).send('Yo ' + ip + ', I’m really happy for you, Imma let you finish but Beyonce had one of the best videos of all time…one of the best videos of all time!');
 });
 
 // error handler
-app.use(function (err, req, res, next) {
+app.use(function (err, req, res) {
   console.error(err.stack);
   res.status(400).send(err.message);
 });
