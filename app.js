@@ -4,10 +4,12 @@ var bodyParser = require('body-parser');
 var app = express();
 var port = process.env.PORT || 3000;
 
-
 // vars this app uses to know who has chatted recently.
 var prevUserName = '';
 var userName = 'Beyonce';
+
+// Need this to get user's ip address correctly.
+app.enable('trust proxy');
 
 // body parser middleware
 app.use(bodyParser.urlencoded({ extended: true }));
