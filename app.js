@@ -22,14 +22,15 @@ app.post('*', function immaLetYouFinish (req, res) {
     return res.status(401).end();
   }
 
+  // if slackbot is chatting, return. if we allow him through, we can get an infinite loop.
+  // slack can ban this app for spamming the chatroom.
   if (data.user_name === 'slackbot') {
     return res.status(200).end();
   }
 
-  // if this user is the same one as the last one, dont change prevUserName. Otherwise, userName becomes prevUserName.
+  // if this user is the same one as the last one, don't change prevUserName. Otherwise, userName is stored prevUserName.
   prevUserName = req.body.user_name === userName ? prevUserName : userName;
-
-  // the user that is currently chatting.
+  // userName is the user that is currently chatting.
   userName = req.body.user_name;
 
   // there's a 0.5% chance of interrupting the conversation.
@@ -43,10 +44,13 @@ app.post('*', function immaLetYouFinish (req, res) {
       text: 'Yo, @' + userName + ', I\'m really happy for you, Imma let you finish, but @' + prevUserName + ' had one of the best comments of all time! One of the best comments of all time!'
     };
 
+    // reply to the channel.
+    console.log('Hmmmm, I feel like interrupting the conversation.');
     res.json(botResponse);
-  } 
+  }
   else {
     // otherwise reply to the server and don't keep it hanging. too many timeouts and slack disables your integration.
+    console.log('Yeah, yeah. Whatever.');
     return res.status(200).end();
   }
 });
@@ -54,7 +58,7 @@ app.post('*', function immaLetYouFinish (req, res) {
 // kanye also replies to everyone else doing a get request.
 app.get('*', function(req, res) {
   var ip = req.ip;
-  res.status(200).send('Yo ' + ip + ', I’m really happy for you, Imma let you finish but Beyonce had one of the best videos of all time…one of the best videos of all time!');
+  res.status(200).send('Yo ' + ip + ', I’m really happy for you, Imma let you finish, but Beyonce had one of the best videos of all time…one of the best videos of all time!');
 });
 
 // error handler
