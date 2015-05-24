@@ -8,7 +8,7 @@
     "OUTGOING_WEBHOOK_TOKEN": {
       "description": "Slack gives you this key to verify if the request came from Slack. You can find it on the Outgoing Webhook integration.",
       "value": "",
-      "required": "false"
+      "required": false
     }
   }
 }
