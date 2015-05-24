@@ -22,9 +22,9 @@ Use that button to deploy this app to Heroku. Before you deploy the app, add the
 ![Outgoing Webhook Token config variable](http://i.imgur.com/iIcRr5yl.png)
 
 ### Add the app's URL on the Outgoing Webhook Integration.
-Your app should have a URL. If you don't know it, you can find it on Heroku under your app's settings.
+Your app should have a URL. If you don't know it, you can find it on Heroku under your app's settings. Take note of it.
 
-Add the URL to the Slack integration. Save your settings.
+Now go back to the integration settings. Add the URL. Save your settings.
 
 ![Slack Integration URL](http://i.imgur.com/5GAHS9ol.png)
 
