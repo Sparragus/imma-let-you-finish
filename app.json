@@ -1,0 +1,14 @@
+{
+  "name": "imma-let-you-finish",
+  "description": "imma-let-you-finish celebrates over five years of Kanye West hacking the stage. This Slack Bot will randomly appear on your conversation to tell everyone who has the best comment of all times. Of all times!.",
+  "repository": "https://github.com/Sparragus/imma-let-you-finish",
+  "logo": "",
+  "keywords": ["node", "express", "kanye west", "slack"],
+  "env": {
+    "OUTGOING_WEBHOOK_TOKEN": {
+      "description": "Slack gives you this key to verify if the request came from Slack. You can find it on the Outgoing Webhook integration.",
+      "value": "",
+      "required": "false"
+    }
+  }
+}
