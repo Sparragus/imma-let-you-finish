@@ -18,6 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.post('*', function immaLetYouFinish (req, res) {
   var data = req.body;
 
+  // if the token doesn't match, the request is not coming from Slack. 401 = unauthorized
   if (process.env.OUTGOING_WEBHOOK_TOKEN && data.token !== process.env.OUTGOING_WEBHOOK_TOKEN) {
     return res.status(401).end();
   }
@@ -28,14 +29,14 @@ app.post('*', function immaLetYouFinish (req, res) {
     return res.status(200).end();
   }
 
-  // if this user is the same one as the last one, don't change prevUserName. Otherwise, userName is stored prevUserName.
+  // if this user is the same one as the last one, don't change prevUserName. Otherwise, userName is stored in prevUserName.
   prevUserName = req.body.user_name === userName ? prevUserName : userName;
   // userName is the user that is currently chatting.
   userName = req.body.user_name;
 
-  // there's a 0.5% chance of interrupting the conversation.
+  // there's a 0.05% chance of interrupting the conversation.
   var probability = Math.random();
-  if (probability <= Number(0.005)) {
+  if (probability <= 0.005) {
 
     // kanye west's response
     var botResponse = {
