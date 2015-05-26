@@ -6,7 +6,7 @@
 
 ## Add it on your Slack channel in three steps!
 ### Step 1 - Create an Outgoing Webhook integration
-You'll need to go to https://TEAM-DOMAIN.slack.com/services/new/outgoing-webhook and add a new Outgoing Webhook integration. 
+You'll need to go to https://my.slack.com/services/new/outgoing-webhook and add a new Outgoing Webhook integration. 
 
 Select a channel where you want Kanye West to hang out. I'm using #general, for example. Additionaly, there is a Token on the Integration Settings section. Copy that value. You'll need it later.
 
