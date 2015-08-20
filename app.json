@@ -1,9 +1,9 @@
 {
-  "name": "imma-let-you-finish",
-  "description": "Celebrate over five years of Kanye West hacking the stage with this Slack Bot with Kanye randomly interrupting your conversations.",
+  "name": "is-this-a-bit",
+  "description": "Imitating Emil Cholich, asking people if 'this' is a bit.",
   "repository": "https://github.com/Sparragus/imma-let-you-finish",
-  "logo": "http://i.imgur.com/GSEfJzI.jpg",
-  "keywords": ["node", "express", "kanye west", "slack"],
+  "logo": "http://i.imgur.com/DQQPqho.png",
+  "keywords": ["node", "express", "emil cholich", "slack"],
   "env": {
     "OUTGOING_WEBHOOK_TOKEN": {
       "description": "Slack gives you this key to verify if the request came from Slack. You can find it on the Outgoing Webhook integration.",
