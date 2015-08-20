@@ -6,7 +6,7 @@ var port = process.env.PORT || 3000;
 
 // vars this app uses to know who has chatted recently.
 var prevUserName = '';
-var userName = 'Beyonce';
+var userName = 'Jimmy';
 
 // Need this to get user's ip address correctly.
 app.enable('trust proxy');
@@ -29,8 +29,6 @@ app.post('*', function immaLetYouFinish (req, res) {
     return res.status(200).end();
   }
 
-  // if this user is the same one as the last one, don't change prevUserName. Otherwise, userName is stored in prevUserName.
-  prevUserName = req.body.user_name === userName ? prevUserName : userName;
   // userName is the user that is currently chatting.
   userName = req.body.user_name;
 
@@ -40,9 +38,9 @@ app.post('*', function immaLetYouFinish (req, res) {
 
     // kanye west's response
     var botResponse = {
-      icon_url: 'http://i.imgur.com/GSEfJzI.jpg',
-      username: 'Kanye West',
-      text: 'Yo, @' + userName + ', I\'m really happy for you, Imma let you finish, but @' + prevUserName + ' had one of the best comments of all time! One of the best comments of all time!'
+      icon_url: 'http://i.imgur.com/DQQPqho.png',
+      username: 'Emil Cholich',
+      text: '@' + userName + ', is this a bit???'
     };
 
     // reply to the channel.
@@ -59,7 +57,7 @@ app.post('*', function immaLetYouFinish (req, res) {
 // kanye also replies to everyone else doing a get request.
 app.get('*', function(req, res) {
   var ip = req.ip;
-  res.status(200).send('Yo ' + ip + ', I’m really happy for you, Imma let you finish, but Beyonce had one of the best videos of all time...one of the best videos of all time!');
+  res.status(200).send('Yo ' + ip + ', is this a bit?');
 });
 
 // error handler
@@ -69,5 +67,5 @@ app.use(function (err, req, res) {
 });
 
 app.listen(port, function () {
-  console.log('Kanye West is listening on port ' + port);
+  console.log('Emil Cholich is waiting for a bit on port ' + port);
 });
