@@ -29,6 +29,6 @@ Now go back to the integration settings. Add the URL. Save your settings.
 ![Slack Integration URL](http://i.imgur.com/5GAHS9ol.png)
 
 ### You're done! :D
-Kanye West has a 0.5% of interrupting your conversations. A rare sight, indeed. But when he appears, lols are guaranteed.
+Kanye West has a 0.5% chance of interrupting your conversations. A rare sight, indeed. But when he appears, lols are guaranteed.
 
 ![](http://ledhack.org/content/images/2015/05/taylorkanye-1.gif)
