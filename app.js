@@ -76,4 +76,4 @@ app.listen(port, function () {
 // Keep app alive on heroku
 setInterval(function(){
   http.get('http://imma-let-you-finish.herokuapp.com', console.log.bind(null, 'Keeping Kanye Alive.'));
-});
+}, 60 * 1000);
