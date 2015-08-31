@@ -1,5 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var http = require('http');
 
 var app = express();
 var port = process.env.PORT || 3000;
@@ -70,4 +71,9 @@ app.use(function (err, req, res) {
 
 app.listen(port, function () {
   console.log('Kanye West is listening on port ' + port);
+});
+
+// Keep app alive on heroku
+setInterval(function(){
+  http.get('http://imma-let-you-finish.herokuapp.com', console.log.bind(null, 'Keeping Kanye Alive.'));
 });
